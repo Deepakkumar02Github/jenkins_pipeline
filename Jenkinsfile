@@ -8,8 +8,11 @@ pipeline {
     }
     stage ('Test') {
       steps {
-        sh 'test 5 -eq 5'
-        sh 'test -f Jenkinsfile'
+        script {
+          // Capture and display the output
+          def commandOutput = sh(script: 'test 5 -eq 5', returnStdout: true).trim()
+          echo $commandOutput
+        }
       }
     }
   }
