@@ -10,7 +10,7 @@ pipeline {
       steps {
         script {
           // Capture and display the output
-          def commandOutput = sh(script: 'test 5 -eq 15', returnStdout: true).trim()
+          def commandOutput = sh(script: 'echo hello', returnStdout: true).trim()
           echo "$commandOutput"
         }
       }
