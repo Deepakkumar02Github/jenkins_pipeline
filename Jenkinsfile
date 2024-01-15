@@ -9,6 +9,7 @@ pipeline {
     stage ('Test') {
       steps {
         sh 'test 5 -eq 5'
+        sh 'test -f Jenkinsfile'
       }
     }
   }
