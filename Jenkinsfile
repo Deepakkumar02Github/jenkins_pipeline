@@ -6,5 +6,10 @@ pipeline {
         sh 'echo Building the project'
       }
     }
+    stage ('Test') {
+      steps {
+        sh 'test 5 -eq 5'
+      }
+    }
   }
 }
