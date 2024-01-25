@@ -3,7 +3,9 @@ pipeline {
   stages {
     stage ('Build') {
       steps {
-        sh 'echo "Building the project"'
+        sh 'touch important_file.txt'
+        sh 'echo Building the project... | tee -a important_file.txt'
+        sh 'echo Project built! | tee -a important_file.txt'
       }
     }
     stage ('Test') {
@@ -14,6 +16,9 @@ pipeline {
           echo "$commandOutput"
         }
       }
+    }
+    stage ('Archive artifacts') {
+      archiveArtifacts artifacts: "important*", fingerprint: true
     }
   }
 }
