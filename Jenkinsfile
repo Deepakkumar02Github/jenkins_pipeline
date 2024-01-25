@@ -18,7 +18,10 @@ pipeline {
       }
     }
     stage ('Archive artifacts') {
-      archiveArtifacts artifacts: "important*", fingerprint: true
+      steps {
+         archiveArtifacts artifacts: "important*", fingerprint: true
+      }
+     
     }
   }
 }
